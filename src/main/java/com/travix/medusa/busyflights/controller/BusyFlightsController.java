@@ -4,12 +4,14 @@ package com.travix.medusa.busyflights.controller;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsRequest;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsResponse;
 import com.travix.medusa.busyflights.service.busyflights.BusyFlights;
+import com.travix.medusa.busyflights.validator.BusyFlightRequestValidator;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,7 +37,7 @@ public class BusyFlightsController {
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<BusyFlightsResponse> searchFlight(BusyFlightsRequest busyFlightsRequest) {
+    List<BusyFlightsResponse> searchFlight(@Validated(BusyFlightRequestValidator.class) BusyFlightsRequest busyFlightsRequest) {
         logger.debug("searchFlight method start", tracer.getCurrentSpan().getTraceId());
         List<BusyFlightsResponse> resp = busyFlights.searchFlight(busyFlightsRequest);
         logger.debug("searchFlight method complete with message", tracer.getCurrentSpan().getTraceId());

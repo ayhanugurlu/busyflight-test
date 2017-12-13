@@ -32,6 +32,7 @@
         <springfox-swagger-ui>2.4.0</springfox-swagger-ui>
         <ma.glasnost.orika.orika-core>1.5.2</ma.glasnost.orika.orika-core>
         <version.maven-compiler-plugin>3.7.0</version.maven-compiler-plugin>
+        <lombok.version>1.16.18</lombok.version>
     </properties>
 
 
@@ -85,6 +86,13 @@
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -106,7 +114,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${version.maven-compiler-plugin}</version>
                 <configuration>
-                    <compilerVersion>1.7</compilerVersion>
+                    <compilerVersion>1.8</compilerVersion>
                     <source>${project.source.version}</source>
                     <target>${project.target.version}</target>
                 </configuration>

@@ -1,5 +1,14 @@
 package com.travix.medusa.busyflights.domain.crazyair;
 
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+@Builder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class CrazyAirResponse {
 
     private String airline;
