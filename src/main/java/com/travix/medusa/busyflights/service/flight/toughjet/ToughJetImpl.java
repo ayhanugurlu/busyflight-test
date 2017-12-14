@@ -14,6 +14,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ToughJetImpl implements Flight {
 
@@ -29,11 +33,11 @@ public class ToughJetImpl implements Flight {
 
 
     @Override
-    public BusyFlightsResponse searchFlight(BusyFlightsRequest busyFlightsRequest) {
+    public List<BusyFlightsResponse> searchFlight(BusyFlightsRequest busyFlightsRequest) {
         ToughJetRequest toughJetRequest = mapperFacade.map(busyFlightsRequest, ToughJetRequest.class);
         RestTemplate restTemplate = new RestTemplate();
-        ToughJetResponse toughJetResponse = restTemplate.postForObject(endpoint,toughJetRequest, ToughJetResponse.class);
-        BusyFlightsResponse busyFlightsResponse = mapperFacade.map(toughJetResponse, BusyFlightsResponse.class);
-        return busyFlightsResponse;
+        ToughJetResponse[] toughJetResponses = restTemplate.postForObject(endpoint,toughJetRequest, ToughJetResponse[].class);
+        List<BusyFlightsResponse> response = Arrays.stream(toughJetResponses).map(toughJetResponse -> mapperFacade.map(toughJetResponse, BusyFlightsResponse.class)).collect(Collectors.toList());
+        return response;
     }
 }

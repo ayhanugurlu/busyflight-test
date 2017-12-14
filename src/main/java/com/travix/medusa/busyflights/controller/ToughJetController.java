@@ -11,6 +11,7 @@ import java.util.List;
 import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/toughJet")
 public class ToughJetController {
 
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public ResponseEntity<List<ToughJetResponse>> search(@Valid ToughJetRequest request) {
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public ResponseEntity<List<ToughJetResponse>> search(@Valid @RequestBody ToughJetRequest request) {
 
         final ToughJetResponse resp1 =
                 ToughJetResponse.builder()

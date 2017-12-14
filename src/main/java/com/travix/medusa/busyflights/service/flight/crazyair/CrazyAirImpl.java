@@ -1,5 +1,6 @@
 package com.travix.medusa.busyflights.service.flight.crazyair;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsRequest;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsResponse;
 import com.travix.medusa.busyflights.domain.crazyair.CrazyAirRequest;
@@ -11,6 +12,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CrazyAirImpl implements Flight {
@@ -29,12 +34,12 @@ public class CrazyAirImpl implements Flight {
 
 
     @Override
-    public BusyFlightsResponse searchFlight(BusyFlightsRequest busyFlightsRequest) {
+    public List<BusyFlightsResponse> searchFlight(BusyFlightsRequest busyFlightsRequest) {
 
         CrazyAirRequest crazyAirRequest = mapperFacade.map(busyFlightsRequest, CrazyAirRequest.class);
         RestTemplate restTemplate = new RestTemplate();
-        CrazyAirResponse crazyAirResponse = restTemplate.postForObject(endpoint,crazyAirRequest, CrazyAirResponse.class);
-        BusyFlightsResponse busyFlightsResponse = mapperFacade.map(crazyAirResponse, BusyFlightsResponse.class);
-        return busyFlightsResponse;
+        CrazyAirResponse[] crazyAirResponses = restTemplate.postForObject(endpoint,crazyAirRequest, CrazyAirResponse[].class);
+        List<BusyFlightsResponse> response = Arrays.stream(crazyAirResponses).map(crazyAirResponse -> mapperFacade.map(crazyAirResponse, BusyFlightsResponse.class)).collect(Collectors.toList());
+        return response;
     }
 }

@@ -8,10 +8,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,7 +25,7 @@ public class BusyFlightsImpl implements BusyFlights, ApplicationListener<Context
                         f.stream()
                                 .map(flight ->
                                         flight.searchFlight(busyFlightsRequest))
-                                .parallel()
+                                .flatMap(Collection::stream)
                                 .collect(Collectors.toList()))
                 .orElse(Collections.emptyList());
     }
