@@ -1,11 +1,10 @@
 package com.travix.medusa.busyflights.service.flight.crazyair;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsRequest;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsResponse;
 import com.travix.medusa.busyflights.domain.crazyair.CrazyAirRequest;
 import com.travix.medusa.busyflights.domain.crazyair.CrazyAirResponse;
-import com.travix.medusa.busyflights.service.flight.Flight;
+import com.travix.medusa.busyflights.service.flight.Supplier;
 import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CrazyAirImpl implements Flight {
+public class CrazyAirImpl implements Supplier {
 
 
 

@@ -1,5 +1,8 @@
 package com.travix.medusa.busyflights.domain.toughjet;
 
+import lombok.Builder;
+
+@Builder(toBuilder = true)
 public class ToughJetRequest {
 
     private String from;

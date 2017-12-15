@@ -22,7 +22,7 @@ public class CrazyAirController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public ResponseEntity<List<CrazyAirResponse>> search(@Valid @RequestBody CrazyAirRequest request) {
-        System.out.println("asd");
+
         final CrazyAirResponse resp1 =
                 CrazyAirResponse.builder()
                         .airline("LH")

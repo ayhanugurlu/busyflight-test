@@ -6,7 +6,7 @@ import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsResponse;
 
 import com.travix.medusa.busyflights.domain.toughjet.ToughJetRequest;
 import com.travix.medusa.busyflights.domain.toughjet.ToughJetResponse;
-import com.travix.medusa.busyflights.service.flight.Flight;
+import com.travix.medusa.busyflights.service.flight.Supplier;
 import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ToughJetImpl implements Flight {
+public class ToughJetImpl implements Supplier {
 
 
     @Autowired

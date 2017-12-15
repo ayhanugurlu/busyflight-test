@@ -1,5 +1,8 @@
 package com.travix.medusa.busyflights.domain.crazyair;
 
+import lombok.Builder;
+
+@Builder(toBuilder = true)
 public class CrazyAirRequest {
 
     private String origin;

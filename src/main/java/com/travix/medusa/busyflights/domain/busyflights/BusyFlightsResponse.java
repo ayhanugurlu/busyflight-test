@@ -1,5 +1,8 @@
 package com.travix.medusa.busyflights.domain.busyflights;
 
+import lombok.Builder;
+
+@Builder(toBuilder = true)
 public class BusyFlightsResponse {
 
 

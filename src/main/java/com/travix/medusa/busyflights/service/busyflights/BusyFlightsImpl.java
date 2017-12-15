@@ -3,7 +3,7 @@ package com.travix.medusa.busyflights.service.busyflights;
 
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsRequest;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsResponse;
-import com.travix.medusa.busyflights.service.flight.Flight;
+import com.travix.medusa.busyflights.service.flight.Supplier;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class BusyFlightsImpl implements BusyFlights, ApplicationListener<ContextRefreshedEvent> {
 
 
-    private Optional<List<Flight>> flights;
+    private Optional<List<Supplier>> flights;
 
 
     @Override
@@ -23,8 +23,8 @@ public class BusyFlightsImpl implements BusyFlights, ApplicationListener<Context
         return flights
                 .map(f ->
                         f.stream()
-                                .map(flight ->
-                                        flight.searchFlight(busyFlightsRequest))
+                                .map(supplier ->
+                                        supplier.searchFlight(busyFlightsRequest))
                                 .flatMap(Collection::stream)
                                 .collect(Collectors.toList()))
                 .orElse(Collections.emptyList());
@@ -33,7 +33,7 @@ public class BusyFlightsImpl implements BusyFlights, ApplicationListener<Context
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        flights = Optional.of(new ArrayList<>(contextRefreshedEvent.getApplicationContext().getBeansOfType(Flight.class).values()));
+        flights = Optional.of(new ArrayList<>(contextRefreshedEvent.getApplicationContext().getBeansOfType(Supplier.class).values()));
 
     }
 }
