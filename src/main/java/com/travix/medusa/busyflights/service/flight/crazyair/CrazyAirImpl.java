@@ -4,8 +4,8 @@ import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsRequest;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsResponse;
 import com.travix.medusa.busyflights.domain.crazyair.CrazyAirRequest;
 import com.travix.medusa.busyflights.domain.crazyair.CrazyAirResponse;
-import com.travix.medusa.busyflights.mapper.BusyFlightServiceMapper;
 import com.travix.medusa.busyflights.service.flight.Supplier;
+import ma.glasnost.orika.MapperFacade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class CrazyAirImpl implements Supplier {
     Tracer tracer;
 
     @Autowired
-    BusyFlightServiceMapper mapperFacade;
+    MapperFacade mapperFacade;
 
     @Autowired
     RestTemplate restTemplate;
