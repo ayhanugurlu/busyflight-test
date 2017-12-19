@@ -1,45 +1,39 @@
-package com.travix.medusa.busyflights.crazyair;
+package com.travix.medusa.busyflights.service.crazyair;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsRequest;
 import com.travix.medusa.busyflights.domain.busyflights.BusyFlightsResponse;
 import com.travix.medusa.busyflights.domain.crazyair.CrazyAirResponse;
 import com.travix.medusa.busyflights.service.flight.crazyair.CrazyAirImpl;
-import jdk.internal.instrumentation.Tracer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Matchers;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
-import org.springframework.http.MediaType;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.client.MockRestServiceServer;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
-import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
 
 @RunWith(SpringRunner.class)
-@RestClientTest(CrazyAirImpl.class)
+@SpringBootTest
 public class CrazyAirImplTest {
 
+    @MockBean
+    RestTemplate restTemplate;
 
     @Autowired
-    Tracer tracer;
-
-    @Autowired
-    private MockRestServiceServer server;
-
-    @Autowired
+    @InjectMocks
     private CrazyAirImpl crazyAirClient;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
 
     @Before
     public void setUp() throws Exception {
@@ -64,12 +58,10 @@ public class CrazyAirImplTest {
                 price(15).
                 build();
 
-        CrazyAirResponse[] crazyAirResponses = {crazyAirResponse1, crazyAirResponse2};
-        String detailsString =
-                objectMapper.writeValueAsString(crazyAirResponses);
 
-        this.server.expect(requestTo("/crazyair"))
-                .andRespond(withSuccess(detailsString, MediaType.APPLICATION_JSON));
+        Mockito.when(restTemplate.postForEntity(Matchers.anyString(), Matchers.anyObject(), Matchers.anyObject())).thenReturn(new ResponseEntity<>(new CrazyAirResponse[]{crazyAirResponse1, crazyAirResponse2}, HttpStatus.OK));
+
+
     }
 
     @Test

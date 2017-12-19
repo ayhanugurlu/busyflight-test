@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CrazyAirController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public ResponseEntity<List<CrazyAirResponse>> search(@Valid @RequestBody CrazyAirRequest request) {
+    public ResponseEntity<CrazyAirResponse[]> search(@Valid @RequestBody CrazyAirRequest request) {
 
         final CrazyAirResponse resp1 =
                 CrazyAirResponse.builder()
@@ -57,6 +57,6 @@ public class CrazyAirController {
                                         .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME))
                         .build();
 
-        return new ResponseEntity<>(Arrays.asList(resp1, resp2), HttpStatus.OK);
+        return new ResponseEntity<>(new CrazyAirResponse[]{resp1, resp2}, HttpStatus.OK);
     }
 }
