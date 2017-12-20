@@ -28,6 +28,7 @@ public class BusyFlightsImpl implements BusyFlights, ApplicationListener<Context
                                 .flatMap(Collection::stream)
                                 .collect(Collectors.toList()))
                 .orElse(Collections.emptyList());
+
     }
 
 

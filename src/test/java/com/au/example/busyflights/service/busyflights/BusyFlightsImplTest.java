@@ -29,7 +29,7 @@ public class BusyFlightsImplTest {
 
     private Optional<List<Supplier>> flights = Optional.empty();
 
-    private BusyFlightsRequest busyFlightsRequest;
+
 
     @Mock
     private CrazyAirImpl one;
@@ -52,7 +52,7 @@ public class BusyFlightsImplTest {
     @Test
     public void searchFlight() throws Exception {
 
-        busyFlightsRequest = BusyFlightsRequest.builder()
+        BusyFlightsRequest busyFlightsRequest = BusyFlightsRequest.builder()
                 .departureDate(DEPARTURE_DATE)
                 .destination(DEST)
                 .numberOfPassengers(NUMBER_OF_PASSENGERS)
@@ -76,8 +76,6 @@ public class BusyFlightsImplTest {
                 price(28).build();
 
         Mockito.when(one.searchFlight(busyFlightsRequest)).thenReturn(Collections.singletonList(busyFlightsResponse1));
-
-
         Mockito.when(two.searchFlight(busyFlightsRequest)).thenReturn(Collections.singletonList((busyFlightsResponse2)));
         flights = Optional.of(Arrays.asList(one, two));
 
