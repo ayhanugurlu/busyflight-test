@@ -1,6 +1,6 @@
 package com.travix.medusa.busyflights.handler;
 
-public class ErrResponce {
+public class ErrResponse {
 
     private long traceID;
 
@@ -10,7 +10,7 @@ public class ErrResponce {
     private String message;
 
 
-    public ErrResponce(long traceID, int status, String message) {
+    public ErrResponse(long traceID, int status, String message) {
         this.traceID = traceID;
         this.status = status;
         this.message = message;

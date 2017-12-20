@@ -44,6 +44,7 @@ public class CrazyAirImpl implements Supplier {
 
     @Override
     public List<BusyFlightsResponse> searchFlight(BusyFlightsRequest busyFlightsRequest) {
+
         logger.debug("searchFlight method start", tracer.getCurrentSpan().getTraceId());
         CrazyAirRequest crazyAirRequest = mapperFacade.map(busyFlightsRequest, CrazyAirRequest.class);
 

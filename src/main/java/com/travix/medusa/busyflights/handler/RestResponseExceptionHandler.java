@@ -39,10 +39,10 @@ public class RestResponseExceptionHandler extends ResponseEntityExceptionHandler
     }
 
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<ErrResponce> handleValidationException(HttpServletRequest request, ValidationException e) {
+    public ResponseEntity<ErrResponse> handleValidationException(HttpServletRequest request, ValidationException e) {
         String errorMessage = e.getErrors().stream().collect(Collectors.joining(", "));
         logger.error(errorMessage);
-        ErrResponce response = new ErrResponce(tracer.getCurrentSpan().getTraceId(), HttpStatus.NOT_FOUND.value(), errorMessage);
+        ErrResponse response = new ErrResponse(tracer.getCurrentSpan().getTraceId(), HttpStatus.NOT_FOUND.value(), errorMessage);
 
         ArrayList<String> errorKeyAndValues = new ArrayList<>();
         errorKeyAndValues.add(VALIDATION_ERROR);
@@ -56,14 +56,14 @@ public class RestResponseExceptionHandler extends ResponseEntityExceptionHandler
 
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrResponce> handleUnknownException(HttpServletRequest request, Exception ex) {
+    public ResponseEntity<ErrResponse> handleUnknownException(HttpServletRequest request, Exception ex) {
         String exceptionPoint = Stream.of(ex.getStackTrace()).map(stackTraceElement -> {
             String className = Stream.of(stackTraceElement.getClassName().split("\\.")).reduce((f, s) -> s).get();
             return className + "." + stackTraceElement.getMethodName() + ":" + stackTraceElement.getLineNumber();
         }).findFirst().get();
         String cause = ex.getCause() == null ? ex.toString() : ex.getCause().toString();
         String message = ex.getMessage() == null ? exceptionPoint : ex.getMessage();
-        ErrResponce response = new ErrResponce(
+        ErrResponse response = new ErrResponse(
                 tracer.getCurrentSpan().getTraceId(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 String.format(UNKNOWN_ERROR, cause, message)

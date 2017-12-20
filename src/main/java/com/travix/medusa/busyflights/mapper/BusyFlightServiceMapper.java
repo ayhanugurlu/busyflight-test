@@ -6,14 +6,11 @@ import com.travix.medusa.busyflights.domain.crazyair.CrazyAirRequest;
 import com.travix.medusa.busyflights.domain.crazyair.CrazyAirResponse;
 import com.travix.medusa.busyflights.domain.toughjet.ToughJetRequest;
 import com.travix.medusa.busyflights.domain.toughjet.ToughJetResponse;
-import ma.glasnost.orika.Converter;
 import ma.glasnost.orika.CustomMapper;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.MappingContext;
-import ma.glasnost.orika.converter.BidirectionalConverter;
-import ma.glasnost.orika.metadata.Type;
-import org.springframework.stereotype.Component;
 import ma.glasnost.orika.impl.ConfigurableMapper;
+import org.springframework.stereotype.Component;
 
 @Component
 public class BusyFlightServiceMapper extends ConfigurableMapper {
