@@ -10,4 +10,7 @@
 [![codecov](https://codecov.io/gh/ayhanugurlu/busyflight-test/branch/master/graph/badge.svg)](https://codecov.io/gh/ayhanugurlu/busyflight-test)
 
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/ayhanugurlu/busyflight-test?branch=master)](https://bettercodehub.com/)
+
+
 
