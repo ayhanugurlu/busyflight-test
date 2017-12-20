@@ -29,13 +29,13 @@ public class CrazyAirImpl implements Supplier {
 
 
     @Autowired
-    Tracer tracer;
+    private Tracer tracer;
 
     @Autowired
-    MapperFacade mapperFacade;
+    private MapperFacade mapperFacade;
 
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
 
     @Value("${crazy.air.endpoint}")

@@ -30,7 +30,7 @@ public class RestResponseExceptionHandler extends ResponseEntityExceptionHandler
 
 
     @Autowired
-    Tracer tracer;
+    private Tracer tracer;
 
 
     @Override
