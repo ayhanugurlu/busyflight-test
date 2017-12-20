@@ -1,10 +1,10 @@
 package com.au.example.busyflights.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.au.example.busyflights.domain.busyflights.BusyFlightsRequest;
 import com.au.example.busyflights.domain.busyflights.BusyFlightsResponse;
 import com.au.example.busyflights.service.busyflights.BusyFlights;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -3,7 +3,7 @@ package com.au.example.busyflights.configuration;
 import org.junit.Test;
 import org.springframework.web.client.RestTemplate;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class BusyFlightsConfigTest {
 

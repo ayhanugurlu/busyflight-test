@@ -1,8 +1,8 @@
 package com.au.example.busyflights.controller;
 
 
-import com.au.example.busyflights.domain.crazyair.CrazyAirResponse;
 import com.au.example.busyflights.domain.crazyair.CrazyAirRequest;
+import com.au.example.busyflights.domain.crazyair.CrazyAirResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;

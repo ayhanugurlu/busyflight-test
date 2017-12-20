@@ -1,10 +1,10 @@
 package com.au.example.busyflights.service.toughjet;
 
 
-import com.au.example.busyflights.service.flight.toughjet.ToughJetImpl;
 import com.au.example.busyflights.domain.busyflights.BusyFlightsRequest;
 import com.au.example.busyflights.domain.busyflights.BusyFlightsResponse;
 import com.au.example.busyflights.domain.toughjet.ToughJetResponse;
+import com.au.example.busyflights.service.flight.toughjet.ToughJetImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

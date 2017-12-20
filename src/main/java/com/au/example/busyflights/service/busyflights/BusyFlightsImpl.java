@@ -1,9 +1,9 @@
 package com.au.example.busyflights.service.busyflights;
 
 
-import com.au.example.busyflights.service.flight.Supplier;
 import com.au.example.busyflights.domain.busyflights.BusyFlightsRequest;
 import com.au.example.busyflights.domain.busyflights.BusyFlightsResponse;
+import com.au.example.busyflights.service.flight.Supplier;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
