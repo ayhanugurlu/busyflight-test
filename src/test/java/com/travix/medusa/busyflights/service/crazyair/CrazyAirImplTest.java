@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CrazyAirImplTest {
 
     @MockBean
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     @Autowired
     @InjectMocks

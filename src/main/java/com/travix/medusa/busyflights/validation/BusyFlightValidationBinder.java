@@ -23,7 +23,7 @@ import java.util.stream.Stream;
 @Component
 public class BusyFlightValidationBinder {
 
-    static Logger logger = LoggerFactory.getLogger(BusyFlightValidationBinder.class);
+    private static Logger logger = LoggerFactory.getLogger(BusyFlightValidationBinder.class);
 
 
     @SuppressWarnings("unchecked")

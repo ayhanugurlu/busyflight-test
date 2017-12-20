@@ -32,7 +32,7 @@ public class ToughJetImplTest {
 
 
     @MockBean
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     @Autowired
     @InjectMocks

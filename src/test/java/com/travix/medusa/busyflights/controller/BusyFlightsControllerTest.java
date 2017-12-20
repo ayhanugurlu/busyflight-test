@@ -40,11 +40,11 @@ public class BusyFlightsControllerTest {
     private Tracer tracer;
 
     @MockBean
-    Span span;
+    private  Span span;
 
 
     @MockBean
-    BusyFlights busyFlights;
+    private BusyFlights busyFlights;
 
 
     @Before
