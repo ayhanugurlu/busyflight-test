@@ -20,6 +20,7 @@
     </parent>
 
     <properties>
+        <start-classcom.travix.medusa.busyflights.BusyFlightsApplication</start-class>
         <!-- encodings and java versions-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
