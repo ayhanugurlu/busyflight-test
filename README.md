@@ -7,5 +7,7 @@
 
 [link to Heroku!](https://ayhan-busyflight-test.herokuapp.com/swagger-ui.html)
 
+[![codecov](https://codecov.io/gh/ayhanugurlu/busyflight-test/branch/master/graph/badge.svg)](https://codecov.io/gh/ayhanugurlu/busyflight-test)
+
 
 
