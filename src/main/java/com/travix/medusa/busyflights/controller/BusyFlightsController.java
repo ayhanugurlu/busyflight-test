@@ -27,10 +27,10 @@ public class BusyFlightsController {
     private static Logger logger = LoggerFactory.getLogger(BusyFlightsController.class);
 
     @Autowired
-    BusyFlights busyFlights;
+    private BusyFlights busyFlights;
 
     @Autowired
-    Tracer tracer;
+    private Tracer tracer;
 
     @ApiOperation(value = "search flight",
             notes = "Returns registered flight and return all registered company flight information<br/>")
