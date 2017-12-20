@@ -4,7 +4,7 @@ jdk:
 script:
   mvn clean install
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash) -t 8b9790c6-603e-4b35-8364-40c239a5cb60
 notifications:
   webhooks:
     urls:
