@@ -1,0 +1,14 @@
+language: java
+jdk:
+- oraclejdk8
+script:
+  mvn clean install
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/207278f8db921a1a998e
+    on_success: always
+    on_failure: always
+    on_start: never     # options: [always|never|change]
