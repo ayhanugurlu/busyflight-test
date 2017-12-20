@@ -12,5 +12,9 @@ notifications:
     on_failure: always
     on_start: never
 deploy:
+  provider: heroku
   api_key:
     secure: DMGwkG7La7Znt9575MHZcsANFpccfeleccy8MLGlh/krFyW09aCENmJDivlgZ0o6Aul9K4gZrwXXIYhLKjP0y2Jztwa+kVs8rHavc9b7xA6pYXtMhKtkAfCaLklxMbq094LD/tsguskUYKyOe94pseLZDo7+uSleYHOtFJd+Ppo+tWXRzAOuqjsFeXyRetU5/TL7gdpHuFYG8w/R9/H/He7Ot256HreQVsTRxx8/cEEp9a3VC6XgMxEMYTQ+SMcSs3oQ3XPT2lVX3hN/eHXg/hD1zzw8XK6rq8jc+HtsIahUmbgy33JUBm8Os/fwnaQ6z5XrOSmM8+jZ3fNerA61n6N/f3WmiYREZKkhAv7Ahi2gwp/gutNG4j7boi6ln6Yrq03rxeAbEcN68faLngCf1yFmHVqyvbaA0IiQ5iS3jI56cl6G9sEyJq/ZdscESABu+JiEJisvMWkzn5vT0Y4x71OrQvBs6nxVX8XByiv2B+o1AF09BqM2baBM9SlynSv11Vt+lMbxP//lVy8yFgqTMiotauag/pFhbR/agDe92y8PBv+nHDcY145pFD6xr1tvv3ZN3bZRit+MUr8/Z0RY2Ail1/JMS4PVawnEbOCJWYQYjSBHDhyVetbUtQN1GCSTJczV5HHrVgQT9Vi8rg8EX3fZdXE51R4wrUbfZjDDTBU=
+  app: ayhan-busyflight-test
+  on:
+    repo: ayhanugurlu/busyflight-test
